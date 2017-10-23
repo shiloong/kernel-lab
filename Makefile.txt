@@ -1,0 +1,5 @@
+whack_mmap_sem: whack_mmap_sem.c
+	$(CC) $(CFLAGS) -o whack_mmap_sem whack_mmap_sem.c -pthread
+
+clean:
+	rm -f *.o *~ whack_mmap_sem
