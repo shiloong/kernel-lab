@@ -16,6 +16,7 @@
 #include <linux/fs.h>
 #include <linux/proc_fs.h>
 #include <linux/seq_file.h>
+#include <linux/uaccess.h>
 
 #define MY_KNOB_NAME	"my_knob"
 
@@ -48,6 +49,21 @@ static int my_proc_show(struct seq_file *m, void *v)
 	return 0;
 }
 
+static ssize_t my_proc_write(struct file *file, const char __user *user,
+			    size_t count, loff_t *data)
+{
+	char buf[64];
+
+	if (count == 0 || count > sizeof(buf))
+		return -EINVAL;
+	if (copy_from_user(buf, user, count))
+		return -EFAULT;
+
+	sscanf(buf, "%d", &my_knob);
+
+	return count;
+}
+
 static int my_proc_open(struct inode *inode, struct file *file)
 {
 	return single_open(file, my_proc_show, NULL);
@@ -57,6 +73,7 @@ static const struct file_operations my_proc_fops = {
 	.owner		= THIS_MODULE,
 	.open		= my_proc_open,
 	.read		= seq_read,
+	.write		= my_proc_write,
 	.llseek 	= seq_lseek,
 	.release	= single_release,
 };
