@@ -1,0 +1,29 @@
+From 8b932edfb8788862f10434c1018ad8a6078e0115 Mon Sep 17 00:00:00 2001
+From: Shile Zhang <shile.zhang@nokia.com>
+Date: Fri, 24 Mar 2017 05:41:04 +0800
+Subject: [PATCH] hangcheck-timer: Fix typo in comment
+
+Fix the typo "alloted" -> "allotted" in comment.
+
+Signed-off-by: Shile Zhang <shile.zhang@nokia.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ drivers/char/hangcheck-timer.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/char/hangcheck-timer.c b/drivers/char/hangcheck-timer.c
+index 4f33737..5406b90 100644
+--- a/drivers/char/hangcheck-timer.c
++++ b/drivers/char/hangcheck-timer.c
+@@ -32,7 +32,7 @@
+  * timer and 180 seconds for the margin of error.  IOW, a timer is set
+  * for 60 seconds.  When the timer fires, the callback checks the
+  * actual duration that the timer waited.  If the duration exceeds the
+- * alloted time and margin (here 60 + 180, or 240 seconds), the machine
++ * allotted time and margin (here 60 + 180, or 240 seconds), the machine
+  * is restarted.  A healthy machine will have the duration match the
+  * expected timeout very closely.
+  */
+-- 
+2.6.2
+

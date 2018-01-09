@@ -1,0 +1,32 @@
+From 6ad966d7303b70165228dba1ee8da1a05c10eefe Mon Sep 17 00:00:00 2001
+From: Shile Zhang <shile.zhang@nokia.com>
+Date: Sat, 4 Feb 2017 17:03:40 +0800
+Subject: [PATCH] powerpc/64: Fix checksum folding in csum_add()
+
+Paul's patch to fix checksum folding, commit b492f7e4e07a ("powerpc/64:
+Fix checksum folding in csum_tcpudp_nofold and ip_fast_csum_nofold")
+missed a case in csum_add(). Fix it.
+
+Signed-off-by: Shile Zhang <shile.zhang@nokia.com>
+Acked-by: Paul Mackerras <paulus@ozlabs.org>
+Signed-off-by: Michael Ellerman <mpe@ellerman.id.au>
+---
+ arch/powerpc/include/asm/checksum.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/powerpc/include/asm/checksum.h b/arch/powerpc/include/asm/checksum.h
+index 4e63787..842124b 100644
+--- a/arch/powerpc/include/asm/checksum.h
++++ b/arch/powerpc/include/asm/checksum.h
+@@ -112,7 +112,7 @@ static inline __wsum csum_add(__wsum csum, __wsum addend)
+ 
+ #ifdef __powerpc64__
+ 	res += (__force u64)addend;
+-	return (__force __wsum)((u32)res + (res >> 32));
++	return (__force __wsum) from64to32(res);
+ #else
+ 	asm("addc %0,%0,%1;"
+ 	    "addze %0,%0;"
+-- 
+2.6.2
+
