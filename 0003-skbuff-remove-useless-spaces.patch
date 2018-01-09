@@ -1,0 +1,44 @@
+From 6cb44cbcc14651f1847b677cc058ce5e2c31dcab Mon Sep 17 00:00:00 2001
+From: Shile Zhang <shile.zhang@nokia-sbell.com>
+Date: Tue, 21 Nov 2017 10:30:50 +0800
+Subject: [PATCH 3/4] skbuff: remove useless spaces
+
+Signed-off-by: Shile Zhang <shile.zhang@nokia-sbell.com>
+---
+ include/linux/skbuff.h | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/include/linux/skbuff.h b/include/linux/skbuff.h
+index a38c80e..73cee5f 100644
+--- a/include/linux/skbuff.h
++++ b/include/linux/skbuff.h
+@@ -582,7 +582,7 @@ typedef unsigned int sk_buff_data_t;
+ typedef unsigned char *sk_buff_data_t;
+ #endif
+ 
+-/** 
++/**
+  *	struct sk_buff - socket buffer
+  *	@next: Next buffer in list
+  *	@prev: Previous buffer in list
+@@ -635,7 +635,7 @@ typedef unsigned char *sk_buff_data_t;
+  *	@no_fcs:  Request NIC to treat last 4 bytes as Ethernet FCS
+  *	@csum_not_inet: use CRC32c to resolve CHECKSUM_PARTIAL
+  *	@dst_pending_confirm: need to confirm neighbour
+-  *	@napi_id: id of the NAPI struct this skb came from
++ *	@napi_id: id of the NAPI struct this skb came from
+  *	@secmark: security marking
+  *	@mark: Generic packet mark
+  *	@vlan_proto: vlan encapsulation protocol
+@@ -877,7 +877,7 @@ static inline bool skb_pfmemalloc(const struct sk_buff *skb)
+  */
+ static inline struct dst_entry *skb_dst(const struct sk_buff *skb)
+ {
+-	/* If refdst was not refcounted, check we still are in a 
++	/* If refdst was not refcounted, check we still are in a
+ 	 * rcu_read_lock section
+ 	 */
+ 	WARN_ON((skb->_skb_refdst & SKB_DST_NOREF) &&
+-- 
+2.6.2
+

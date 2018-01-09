@@ -1,0 +1,99 @@
+### 2017.01.28 ###
+##################
+[shilezha@hzling45 lfs_linux]$ git show HEAD | perl scripts/get_maintainer.pl --separator , --nokeywords --nogit --nogit-fallback --norolestats --nol
+Ingo Molnar <mingo@redhat.com>,Peter Zijlstra <peterz@infradead.org>
+[shilezha@hzling45 lfs_linux]$ git send-email --annotate HEAD^ -cc=linux-kernel@vger.kernel.org
+/tmp/DwSYwVyvZ5/0001-sched-fix-the-inconsistent-of-SCHED_RR-timeslice-tun.patch
+Who should the emails be sent to (if any)? Ingo Molnar <mingo@redhat.com>,Peter Zijlstra <peterz@infradead.org>
+Message-ID to be used as In-Reply-To for the first email (if any)?
+(mbox) Adding cc: Shile Zhang <shile.zhang@nokia.com> from line 'From: Shile Zhang <shile.zhang@nokia.com>'
+(body) Adding cc: Shile Zhang <shile.zhang@nokia.com> from line 'Signed-off-by: Shile Zhang <shile.zhang@nokia.com>'
+
+From: Shile Zhang <shile.zhang@nokia.com>
+To: Ingo Molnar <mingo@redhat.com>,
+        Peter Zijlstra <peterz@infradead.org>
+Cc: linux-kernel@vger.kernel.org,
+        Shile Zhang <shile.zhang@nokia.com>
+Subject: [PATCH] sched: fix the inconsistent of SCHED_RR timeslice tuning knob showing
+Date: Sat, 28 Jan 2017 22:00:49 +0800
+Message-Id: <1485612049-20923-1-git-send-email-shile.zhang@nokia.com>
+X-Mailer: git-send-email 2.6.2
+
+    The Cc list above has been expanded by additional
+    addresses found in the patch commit message. By default
+    send-email prompts before sending whenever this occurs.
+    This behavior is controlled by the sendemail.confirm
+    configuration setting.
+
+    For additional information, run 'git send-email --help'.
+    To retain the current behavior, but squelch this message,
+    run 'git config --global sendemail.confirm auto'.
+
+Send this email? ([y]es|[n]o|[q]uit|[a]ll): y
+OK. Log says:
+Sendmail: /usr/sbin/sendmail -i mingo@redhat.com peterz@infradead.org linux-kernel@vger.kernel.org shile.zhang@nokia.com
+From: Shile Zhang <shile.zhang@nokia.com>
+To: Ingo Molnar <mingo@redhat.com>,
+        Peter Zijlstra <peterz@infradead.org>
+Cc: linux-kernel@vger.kernel.org,
+        Shile Zhang <shile.zhang@nokia.com>
+Subject: [PATCH] sched: fix the inconsistent of SCHED_RR timeslice tuning knob showing
+Date: Sat, 28 Jan 2017 22:00:49 +0800
+Message-Id: <1485612049-20923-1-git-send-email-shile.zhang@nokia.com>
+X-Mailer: git-send-email 2.6.2
+
+Result: OK
+
+### 2018.01.09 ###
+##################
+[shilezha@hzling45 kernel]$ ./scripts/get_maintainer.pl mm/page_alloc.c
+Andrew Morton <akpm@linux-foundation.org> (commit_signer:112/121=93%)
+Michal Hocko <mhocko@suse.com> (commit_signer:70/121=58%,authored:34/121=28%,added_lines:431/1470=29%,removed_lines:453/1087=42%)
+Vlastimil Babka <vbabka@suse.cz> (commit_signer:52/121=43%,authored:19/121=16%,added_lines:298/1470=20%,removed_lines:167/1087=15%)
+Mel Gorman <mgorman@techsingularity.net> (commit_signer:37/121=31%,authored:9/121=7%,added_lines:289/1470=20%,removed_lines:191/1087=18%)
+Hillf Danton <hillf.zj@alibaba-inc.com> (commit_signer:16/121=13%)
+Pavel Tatashin <pasha.tatashin@oracle.com> (authored:8/121=7%,added_lines:209/1470=14%,removed_lines:103/1087=9%)
+linux-mm@kvack.org (open list:MEMORY MANAGEMENT)
+linux-kernel@vger.kernel.org (open list)
+[shilezha@hzling45 kernel]$ git send-email --annotate HEAD^ -cc=linux-mm@kvack.org,linux-kernel@vger.kernel.org
+/tmp/i0ilxhzQUK/0001-mm-page_alloc.c-fix-typos-in-comments.patch
+Who should the emails be sent to (if any)? Andrew Morton <akpm@linux-foundation.org>
+Message-ID to be used as In-Reply-To for the first email (if any)?
+(mbox) Adding cc: Shile Zhang <zhangshile@gmail.com> from line 'From: Shile Zhang <zhangshile@gmail.com>'
+(body) Adding cc: Shile Zhang <zhangshile@gmail.com> from line 'Signed-off-by: Shile Zhang <zhangshile@gmail.com>'
+
+From: Shile Zhang <zhangshile@gmail.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-mm@kvack.org,
+        linux-kernel@vger.kernel.org,
+        Shile Zhang <zhangshile@gmail.com>
+Subject: [PATCH] mm/page_alloc.c: fix typos in comments
+Date: Tue,  9 Jan 2018 16:16:14 +0800
+Message-Id: <1515485774-4768-1-git-send-email-zhangshile@gmail.com>
+X-Mailer: git-send-email 2.6.2
+
+    The Cc list above has been expanded by additional
+    addresses found in the patch commit message. By default
+    send-email prompts before sending whenever this occurs.
+    This behavior is controlled by the sendemail.confirm
+    configuration setting.
+
+    For additional information, run 'git send-email --help'.
+    To retain the current behavior, but squelch this message,
+    run 'git config --global sendemail.confirm auto'.
+
+Send this email? ([y]es|[n]o|[q]uit|[a]ll): y
+OK. Log says:
+Sendmail: /usr/sbin/sendmail -i akpm@linux-foundation.org linux-mm@kvack.org linux-kernel@vger.kernel.org zhangshile@gmail.com
+From: Shile Zhang <zhangshile@gmail.com>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: linux-mm@kvack.org,
+        linux-kernel@vger.kernel.org,
+        Shile Zhang <zhangshile@gmail.com>
+Subject: [PATCH] mm/page_alloc.c: fix typos in comments
+Date: Tue,  9 Jan 2018 16:16:14 +0800
+Message-Id: <1515485774-4768-1-git-send-email-zhangshile@gmail.com>
+X-Mailer: git-send-email 2.6.2
+
+Result: OK
+
