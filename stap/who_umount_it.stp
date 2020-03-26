@@ -1,0 +1,14 @@
+#!/usr/bin/env stap
+#
+# This script trace who unmount the given device
+#
+
+probe begin {
+	printf("Begin to probe, run the test code now.\n")
+}
+
+probe kernel.function("umount_one")
+{
+        printf("[%s-%d] called 'umount_one' on %s\n", execname(), pid(), kernel_string($mnt->mnt_devname))
+        print_backtrace()
+}

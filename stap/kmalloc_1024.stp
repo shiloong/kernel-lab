@@ -1,0 +1,26 @@
+#! /usr/bin/env stap
+
+# Using statistics to examine kernel memory allocations
+
+global kmalloc
+
+probe begin {
+        printf("Begin to probe kmalloc-1024 in 10s...\n")
+}
+
+probe kernel.function("__kmalloc") {
+        if ($size == 1024) {
+                kmalloc[execname(), backtrace()]++
+        }
+}
+
+# Exit after 10 seconds
+probe timer.ms(10000) { exit () }
+
+probe end {
+        foreach([name,stack] in kmalloc) {
+                printf("Allocator: %s, %d times\n", name, kmalloc[name,stack])
+                print_syms(stack)
+        }
+        delete kmalloc
+}
