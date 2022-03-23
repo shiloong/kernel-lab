@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ -e /lib/modules/`uname -r`/updates/fun.ko ]; then
+	modprobe fun > /dev/null 2>&1
+fi
